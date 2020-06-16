@@ -7,7 +7,7 @@ import {
     useParams
   } from "react-router-dom";
 import CalApp from './AppCalendar';
-/*import CalLog from './AppLogCalendar';*/
+import CalLog from './AppLogCalendar';
 
 export default function Profile() {
     let match = useRouteMatch();
@@ -42,15 +42,24 @@ export default function Profile() {
   }
 
   function Cal() {
-    let { CalendarSelection } = useParams();
+    let { calendarSelection } = useParams();
 
-    if (CalendarSelection === '') {
+    console.log(useParams());
+
+    console.log(calendarSelection);
+
+    if (calendarSelection === `calendar-edit`) {
       return (
-        <div><CalApp /></div>
+        <div>
+          <CalApp />
+        </div>
       );
-    } else {
+    }
+    else {
       return (
-        <div><CalApp /></div>
+        <div>
+          <CalLog />
+        </div>
       );
     }
   }
