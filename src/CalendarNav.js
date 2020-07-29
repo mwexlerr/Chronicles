@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
     Switch,
     Route,
@@ -9,7 +9,14 @@ import {
 import CalApp from './AppCalendar';
 import CalLog from './AppLogCalendar';
 
-export default function Profile() {
+//export default class CalNav extends Component {
+export default function CalNav() 
+  // handlePress(event, picker) {
+  //   console.log("You pressed the buttooooooon!!!")
+  // }
+  
+  //render() {
+  {
     let match = useRouteMatch();
   
     return (
@@ -19,6 +26,13 @@ export default function Profile() {
         <ul>
           <li>
             <Link to={`${match.url}/calendar-log`}>
+              {/* <button
+                onPress={this.handlePress}
+                title="Learn More"
+                color="#841584"
+                accessibilityLabel="Learn more about this purple button">
+                Log
+              </button> */}
               Log
             </Link>
           </li>
@@ -39,7 +53,8 @@ export default function Profile() {
         </Switch>
       </div>
     );
-  }
+  
+}
 
   function Cal() {
     let { calendarSelection } = useParams();
@@ -48,7 +63,7 @@ export default function Profile() {
 
     console.log(calendarSelection);
 
-    if (calendarSelection === `calendar-edit`) {
+    if (calendarSelection === 'calendar-edit') {
       return (
         <div>
           <CalApp />
