@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
+import axios from "axios"
 
 import "./App.css";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
@@ -20,6 +21,27 @@ class App extends Component {
       },
     ],
   };
+
+  constructor(){
+    //We will populate this function later
+  }
+
+  componentDidMount(){
+    //We will populate this function later
+    axios.get('http://localhost:3001/events')
+      .then(function (response) {
+        console.log(response.data);
+        let appointments = response.data;
+        
+        for (let i = 0; i < appointments.length; i++) {
+          console.log(appointments[i])
+        }    
+  
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   onEventResize = (data) => {
     const { start, end } = data;
