@@ -18,4 +18,3 @@ const todoSchema = new mongoose.Schema({
 const todoModel = mongoose.model("Todo", todoSchema) // creating the model from the schema
 
 module.exports = todoModel // exporting the model
-module.exports.Todo = require("./todo") // requiring the todo model that we just created in mongodb

@@ -22,7 +22,8 @@ class App extends Component {
     ],
   };
 
-  constructor(){
+  constructor(props){
+    super(props)
     //We will populate this function later
   }
 
